@@ -31,5 +31,33 @@ public class RealEstateService {
 		
 		return realEstateList;
 	}
+	
+	// 전달 받은 면적 보다 넓고, 가격보다 낮은 매매 매물 정보 얻어오기
+	public List<RealEstate> getRealEstateListByAreaAndPrice(int area, int price) {
+		// real_estate 테이블에서 전달 받은 면적 보다 넓고, 가격보다 낮은 매매 매물 행 조회 
+		List<RealEstate> realEstateList = realEstateRepository.selectRealEstateListByAreaAndPrice(area, price);
+		
+		return realEstateList;
+	}
+	
+	public int addRealEstateByObejct(RealEstate realEstate) {
+		int count = realEstateRepository.insertRealEstateByObject(realEstate);
+		
+		return count;
+	}
+	
+	public int addRealEstate(
+			int realtorId
+			, String address
+			, int area
+			, String type
+			, int price
+			, int rentPrice) {
+		
+		int count = realEstateRepository.insertRealEstate(realtorId, address, area, type, price, rentPrice);
+		
+		return count;
+	}
+	
 
 }
