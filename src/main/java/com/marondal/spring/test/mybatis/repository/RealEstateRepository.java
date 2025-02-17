@@ -30,5 +30,13 @@ public interface RealEstateRepository {
 			, @Param("type") String type
 			, @Param("price") int price
 			, @Param("rentPrice") int rentPrice);
+	
+//	id가 22 인 행의 type 을 전세로 바꾸고 가격을 70000으로 변경하세요.
+	public int updateRealEstate(
+			@Param("id") int id
+			, @Param("type") String type
+			, @Param("price") int price);
+	
+	public int deleteRealEstate(@Param("id") int id);
 
 }
