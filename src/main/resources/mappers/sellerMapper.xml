@@ -21,4 +21,21 @@
 		)
 	</insert>
 	
+	<select id="selectLastSeller" resultType="com.marondal.spring.test.mvc.domain.Seller">
+		SELECT 
+			`id`
+			, `nickname`
+			, `profileImage`
+			, `temperature`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`seller`
+		ORDER BY 
+			`id` DESC
+		LIMIT 
+			1
+	
+	</select>
+	
 </mapper>
