@@ -38,4 +38,19 @@
 	
 	</select>
 	
+	<select id="selectSeller" parameterType="int" 
+	resultType="com.marondal.spring.test.mvc.domain.Seller">
+		SELECT 
+			`id`
+			, `nickname`
+			, `profileImage`
+			, `temperature`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`seller`
+		WHERE 
+			`id` = #{id}
+	</select>
+	
 </mapper>

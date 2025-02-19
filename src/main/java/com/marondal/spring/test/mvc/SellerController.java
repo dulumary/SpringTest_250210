@@ -38,9 +38,14 @@ public class SellerController {
 	}
 	
 	@GetMapping("/info")
-	public String sellerInfo(Model model) {
-		
-		Seller seller = sellerService.getLastSeller();
+	public String sellerInfo(@RequestParam(value="id", required=false) Integer id 
+			,Model model) {
+		Seller seller = null;
+		if(id == null) {
+			seller = sellerService.getLastSeller();
+		} else {			
+			seller = sellerService.getSeller(id);
+		}
 		
 		model.addAttribute("seller", seller);
 		return "mvc/sellerInfo";
